@@ -39,11 +39,11 @@ if(is_post_request()) {
         redirect_to('index.php');
       } else {
         // Username found, but password does not match.
-        $errors[] = ""; // TODO write an error message
+        $errors[] = "Incorrect Username/Password"; // TODO write an error message
       }
     } else {
       // No username found
-      $errors[] = ""; // TODO write an error message
+      $errors[] = "Incorrect Username/Password"; // TODO write an error message
     }
   }
 }
@@ -64,7 +64,7 @@ if(is_post_request()) {
 
   <form action="login.php" method="post">
     Username:<br />
-    <input type="text" name="username" value="<?php echo $username; ?>" /><br />
+    <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" /><br />
     Password:<br />
     <input type="password" name="password" value="" /><br />
     <input type="submit" name="submit" value="Submit"  />
